@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Me, a Guy and Somebody — Independent Game Studio">
+  <title>Me, a Guy and Somebody</title>
+
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2653590');
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --background: #080808;
+      --foreground: #f4f4f0;
+      --muted: #9a9a96;
+      --border: rgba(255, 255, 255, 0.14);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--foreground);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      height: 100svh;
+      min-height: 650px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+    }
+
+    .hero-background {
+      position: absolute;
+      inset: 0;
+      z-index: -4;
+      background:
+        radial-gradient(circle at 70% 35%, rgba(150, 150, 150, 0.22), transparent 30%),
+        radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.08), transparent 30%),
+        linear-gradient(135deg, #252525, #050505 70%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.35),
+          rgba(0, 0, 0, 0.45) 45%,
+          rgba(0, 0, 0, 0.9)
+        );
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, transparent 10%, rgba(0, 0, 0, 0.5) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .topbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 28px 4vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .mini-logo {
+      width: 220px;
+      height: 122px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .mini-logo img {
+      width: auto;
+      height: auto;
+      max-width: 320px;
+      max-height: 222px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .studio-type {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .hero-content {
+      width: 90%;
+      max-width: 1100px;
+      text-align: center;
+      animation: heroEnter 1.4s ease forwards;
+    }
+
+    @keyframes heroEnter {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .eyebrow {
+      margin-bottom: 25px;
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .logo {
+      font-size: clamp(30px, 8vw, 70px);
+      line-height: 0.88;
+      font-weight: 800;
+      letter-spacing: -0.075em;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    .tagline {
+      max-width: 520px;
+      margin: 32px auto 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .scroll::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 38px;
+      margin: 13px auto 0;
+      background: rgba(255, 255, 255, 0.5);
+      animation: scrollPulse 1.8s infinite;
+    }
+
+    @keyframes scrollPulse {
+      0% {
+        transform: scaleY(0.4);
+        transform-origin: top;
+        opacity: 0.3;
+      }
+
+      50% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scaleY(0.4);
+        transform-origin: top;
+        opacity: 0.3;
+      }
+    }
+
+    .steam-section {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 7vw 60px;
+    }
+
+    .steam-inner {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    }
+
+    .steam-inner h2 {
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: 0.9;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+    }
+
+    .steam-widget {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    }
+
+    .steam-widget iframe {
+    width: 646px;
+    max-width: 100%;
+    border: 0;
+    }
+
+    @media (max-width: 650px) {
+    .steam-section {
+        padding: 90px 7vw;
+    }
+
+    .steam-widget iframe {
+        width: 100%;
+        height: 190px;
+    }
+    }
+
+    .newsletter {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 7vw 100px;
+    }
+
+    .newsletter-inner {
+      width: 100%;
+      max-width: 850px;
+      text-align: center;
+    }
+
+    .line {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 80px;
+    }
+
+    .newsletter h2 {
+      font-size: clamp(50px, 8vw, 100px);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+    }
+
+    .newsletter-description {
+      max-width: 520px;
+      margin: 30px auto 45px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .ml-embedded {
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 4vw;
+      display: flex;
+      justify-content: space-between;
+      color: #60605d;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        padding: 20px;
+      }
+
+      .studio-type {
+        display: none;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .hero-content {
+        width: 92%;
+      }
+
+      .tagline {
+        font-size: 13px;
+      }
+
+      .mini-logo {
+        width: 150px;
+        height: 84px;
+      }
+
+      .mini-logo img {
+        max-width: 150px;
+        max-height: 84px;
+      }
+
+      .newsletter {
+        padding: 90px 7vw;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-background"></div>
+
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+
+    <header class="topbar">
+      <div class="mini-logo">
+        <img src="logo.png" alt="Me, a Guy and Somebody">
+      </div>
+      <h1 class="logo">
+        Me, a Guy &amp; Somebody
+      </h1>
+
+      <div class="studio-type"></div>
+    </header>
+
+    <div class="hero-content">
+      <div class="eyebrow"></div>
+
+      <p class="tagline"></p>
+    </div>
+
+    
+    <a class="scroll" href="#game">Scroll</a>
+  </section>
+
+  <section class="steam-section" id="game">
+    <div class="steam-inner">
+        <div class="eyebrow">Our Games</div>
+
+        <div class="steam-widget">
+        <iframe
+            src="https://store.steampowered.com/widget/4788940/"
+            frameborder="0"
+            width="646"
+            height="190"
+            loading="lazy">
+        </iframe>
+        </div>
+    </div>
+    </section>
+
+  <!-- <section class="newsletter" id="newsletter">
+    <div class="newsletter-inner">
+      <div class="line"></div>
+    
+      <div class="eyebrow"></div>
+
+      <div class="ml-embedded" data-form="a6RZ0x"></div>
+    </div>
+  </section> -->
+
+  <footer>
+    <span>© 2026 Me, a Guy and Somebody</span>
+    <span></span>
+  </footer>
+</body>
+</html>
